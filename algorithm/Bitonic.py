@@ -1,19 +1,21 @@
 input_numbers = [1, 5, 2, 1, 4, 3, 4, 5, 2, 1]
 
 
-def find_candi(arr):
+def find_candi(current, arr):
     up = []
     down = []
-    if len(arr) == 1:
-        return False
+    for i, j in enumerate(arr):
+        if current < i:
+            up.append((i, j))
+        elif current > i:
+            down.append((i, j))
+    return up, down
+
+
+direction = True
+current = []
+def get_bitonic(arr, main_array, direction):
+    if len(arr) == 0:
+        return
     else:
-        first = arr[0]
-        for i in arr[1:]:
-            if i > first:
-                up.append(i)
-            elif i < first:
-                down.append(i)
-        return up, down
-
-
-print(find_candi(input_numbers))
+        up, down = find_candi()
