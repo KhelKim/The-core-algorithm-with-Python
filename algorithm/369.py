@@ -1,4 +1,4 @@
-num1 = 9871020
+num1 = 987
 num2 = 5
 num2 = str(num2)
 count = 0
